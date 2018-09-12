@@ -1,0 +1,135 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+public class BloodBankApplication {
+    String donorname;
+    String  age;
+    String address;
+    String emailid;
+    String mobile;
+    String bloodgroup ;
+    String gender;
+    ArrayList<String> data=new ArrayList<>();
+    ArrayList<String> ret=new ArrayList<>();
+    BloodBankApplication()
+    {
+        
+    }
+    int f=0;
+    void setter()
+    {   
+        
+        Scanner s=new Scanner(System.in);
+        
+        do{
+            System.out.println("do you want to add  donors, type 'Y' on console and if do want to exit ,press 'E'");
+        System.out.println();
+        char c=s.next().charAt(0);
+        if(c=='E')
+        f=1;
+        switch(c)
+        {
+            case 'Y': System.out.println("enter the name of donor");
+                      System.out.println("==================================================================");
+                     donorname=s.next();
+                     
+                     data.add(donorname);
+                     System.out.println("enter the age of donor");
+                      System.out.println("==================================================================");
+                     age=s.next();
+                     
+                    
+                     data.add(age);
+                     System.out.println("enter the address of donor");
+                      System.out.println("==================================================================");
+                       address=s.next();
+                       data.add(address);
+                       System.out.println("enter the email id of donor");
+                      System.out.println("==================================================================");
+                     emailid=s.next();
+                     data.add(emailid);
+                     ret.add(emailid);
+                     System.out.println("enter the mobile phone of donor");
+                      System.out.println("==================================================================");
+                     mobile=s.next();
+                     data.add(mobile);
+                     ret.add(mobile);
+                     System.out.println("enter the blood group of donor");
+                      System.out.println("==================================================================");
+                     bloodgroup=s.next();
+                     data.add(bloodgroup);
+                     ret.add(bloodgroup);
+                     System.out.println("enter the genderof donor");
+                      System.out.println("==================================================================");
+                     gender=s.next();
+                     data.add(gender);
+                     break;
+        case 'E' : System.out.println("thank you ");
+                      System.out.println("==================================================================")   ;          
+        default : System.out.println("wrong case entered");
+                      System.out.println("==================================================================") ;            
+        }
+
+        }while(f!=0);
+        
+        
+    }
+    void displaydata ()
+    {
+        for(int i=0;i<data.size();i++)
+        {
+            int n=0;
+        
+            while(n<7)
+            {
+                
+                System.out.print(data.get(i)+"|||||");
+                i++;
+                n++;
+            }
+            i--;
+            System.out.println();
+            
+        }
+    }
+    void ret()
+    {
+         for(int i=0;i<ret.size();i++)
+        {
+            int n=0;
+        
+            while(n<3)
+            {
+                
+                System.out.print(ret.get(i)+"|||||");
+                i++;
+                n++;
+            }
+            i--;
+            System.out.println();
+            
+        }
+    }
+   public static void main(String args[])
+{
+    Scanner s=new Scanner(System.in);
+    BloodBankApplication b=new BloodBankApplication();
+    b.setter();
+    
+    System.out.println("do you want to see database, if yes press'Y' otherwise 'N' ");
+    char c=s.next().charAt(0);
+    if(c=='Y')
+    {
+     b.displaydata();
+        
+    }
+    System.out.println("do yo want to filter dtaa  if yes press'Y' otherwise 'N'");
+    char h=s.next().charAt(0);
+    if(h=='Y')
+    {
+      b.ret();
+    }
+  
+    
+    
+}
+}
